@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import { ConnectWallet, useContract, useUnclaimedNFTSupply, useClaimedNFTSupply, useContractMetadata, useAddress, useNetwork, useNetworkMismatch, useActiveClaimCondition } from '@thirdweb-dev/react'
 import { useEffect, useState } from 'react'
+import { NoRampOneClick } from "norampkit"
 
 type ChainProps = {
   activeChainId: number;
@@ -9,7 +10,7 @@ type ChainProps = {
 
 const Home = (props: ChainProps) => {
   // contract initialization.
-  const contractAdress = "0x408c37172069cDbc3EdfE508BD31ec96Af09186E";
+  const contractAdress = "0xB4b9cE2a27605D1B94012Eaa2BB25D26AAB42a09";
   const { contract: nftDrop} = useContract(contractAdress);
   
   // contract metadata and supply.
@@ -106,14 +107,18 @@ const Home = (props: ChainProps) => {
               <span>{claimedSupply?.toNumber()}/{""}{(unclaimedSupply?.toNumber() || 0) + (claimedSupply?.toNumber() || 0)}</span>
             </div>
             <div className="card__img mt-3">
-              <Image src="/card.png" alt="cuteastros" className='rounded-lg' layout='responsive' width='100%' height='100%' priority={true} placeholder="blur" />
+              <Image src="/card.png" alt="cuteastros" className='rounded-lg' layout='responsive' width='100%' height='100%' priority={true} />
             </div>
             <div className="card__btn mt-3">
               {address ? (
                 <div className="mint__options flex justify-centre items-centre gap-x-2">
                   <input type="number" placeholder='QTY' name="qty" className="border text-sm rounded-md block w-[30%] h-full p-2.5 focus:outline-none focus:border-[#843cff] focus:ring-1 focus:ring-[#843cff]" disabled={isMinting} min="1" max={maxClaim} onChange={(e) => {setQty(Number(e.target.value))}} />
 
-                  <button onClick={mint} disabled={isMinting} className='p-2 bg-[#843cff] rounded-md w-[70%] text-white heading'>{isMinting? 'Minting' : isWrongNetwork? 'Change network' : 'Mint 🚀'}</button>
+                  <NoRampOneClick
+                   priceId="price_7EaMp6g9c5WMmvSPH5nkot"
+                   testnet
+                  />
+
                 </div>
               ) : (<ConnectWallet accentColor="#843cff" colorMode='light'/>)}
 
