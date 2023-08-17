@@ -116,7 +116,6 @@ const Home = (props: ChainProps) => {
 
                   <NoRampOneClick
                    priceId="price_7EaMp6g9c5WMmvSPH5nkot"
-
                   />
 
                 </div>
