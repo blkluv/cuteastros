@@ -15,7 +15,7 @@ const Layout = ({children}: Props) => {
   return (
     <>
         <Head>
-            <title>cuteastros</title>
+            <title>Verified</title>
             <meta name="description" content="cuteastros is a unique collection of cute astronauts"/>
         </Head>
 
@@ -23,9 +23,9 @@ const Layout = ({children}: Props) => {
             <nav className='mt-4 mr-6'>
             <ul className='flex justify-end items-center gap-x-4 body-font'>
                 
-                <li className={`${router.asPath == "/"? 'font-bold text-white': 'text-slate-400'}`}><Link href='/'>mint</Link></li>
-                <li className={`${router.asPath == "/about"? 'font-bold text-white': 'text-slate-400'}`}><Link href="/about">about</Link></li>
-                <li className={`${router.asPath == "/credits"? 'font-bold text-white': 'text-slate-400'}`}><Link href="/credits">credits</Link></li>
+                <li className={`${router.asPath == "/"? 'font-bold text-white': 'text-slate-400'}`}><Link href='https://verified.luvnft.com'>Verified</Link></li>
+                <li className={`${router.asPath == "/about"? 'font-bold text-white': 'text-slate-400'}`}><Link href="/about">About</Link></li>
+                <li className={`${router.asPath == "/credits"? 'font-bold text-white': 'text-slate-400'}`}><Link href="/credits">Utility</Link></li>
             </ul>
             </nav>
 
